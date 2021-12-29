@@ -8,8 +8,11 @@ ja:
         memo: メモ  #g
         picture: 写真  #g
         title: タイトル  #g
-  books: 本の一覧
-  editing_book: 本の編集
+  books:
+    index:
+      title: 本の一覧
+    edit:
+      title: 本の編集
   function:
     new_book: 新規作成
     show: 詳細
