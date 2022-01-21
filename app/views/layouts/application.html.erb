@@ -13,8 +13,8 @@
     <header>
       <nav>
         <% if user_signed_in? %>
-          <%= link_to 'logout', destroy_user_session_path, method: :delete %>
-          <%= link_to 'users', users_path %>
+          <%= link_to t('views.common.logout'), destroy_user_session_path, method: :delete %>
+          <%= link_to t('views.common.users_index'), users_path %>
         <% end %>
       </nav>
     </header>
