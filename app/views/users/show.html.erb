@@ -1,0 +1,27 @@
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @user.username %>
+</p>
+
+<p>
+  <strong>Introduction:</strong>
+  <%= @user.introduction %>
+</p>
+
+<p>
+  <strong>Postcode:</strong>
+  <%= @user.postcode %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @user.address %>
+</p>
+
+<%= link_to t('views.common.edit'), edit_user_registration_path(@user) %> |
+<%= link_to t('views.common.back'), users_path %>
