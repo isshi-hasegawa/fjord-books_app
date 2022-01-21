@@ -23,5 +23,7 @@
   <%= @user.address %>
 </p>
 
-<%= link_to t('views.common.edit'), edit_user_registration_path(@user) %> |
+<% if @user == current_user %>
+  <%= link_to t('views.common.edit'), edit_user_registration_path(current_user) %> |
+<% end %>
 <%= link_to t('views.common.back'), users_path %>
