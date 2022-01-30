@@ -10,7 +10,7 @@
         <% else %>
           <%= link_to comment.user.name, comment.user %>
         <% end %>
-        <%= comment.created_at %>
+        <%= comment.created_at.to_s(:datetime_jp) %>
       </small>
     </li>
   <% end %>
