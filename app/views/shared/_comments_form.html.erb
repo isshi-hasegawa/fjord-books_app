@@ -1,0 +1,27 @@
+<h2>Comment</h2>
+
+<ul>
+  <% commentable.comments.order(:id).each do |comment| %>
+    <li>
+      <%= comment.content %>
+      <small>
+        <% if comment.user.name.blank? %>
+          <%= comment.user.email %>
+        <% else %>
+          <%= link_to comment.user.name, comment.user %>
+        <% end %>
+        <%= comment.created_at %>
+      </small>
+    </li>
+  <% end %>
+</ul>
+
+<%= form_with(model: [commentable, commentable.comments.new]) do |f| %>
+  <div class="field">
+    <%= f.text_area :content %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

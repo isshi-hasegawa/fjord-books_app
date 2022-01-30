@@ -20,6 +20,8 @@
   <%= @report.created_at.to_date %>
 </p>
 
+<%= render 'shared/comments_form', commentable: @report %>
+
 <% if current_user == @report.user %>
   <%= link_to t('views.common.edit'), edit_report_path(@report) %> |
 <% end %>
