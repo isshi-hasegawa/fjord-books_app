@@ -6,7 +6,7 @@ class Reports::CommentsController < ApplicationController
     comment = report.comments.new(comment_params)
     comment.user = current_user
     comment.save
-    redirect_to report, notice: 'Comment was successfully created.'
+    redirect_to report, notice: t('controllers.common.notice_comment_create')
   end
 
   private

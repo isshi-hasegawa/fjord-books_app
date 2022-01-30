@@ -6,7 +6,7 @@ class Books::CommentsController < ApplicationController
     comment = book.comments.new(comment_params)
     comment.user = current_user
     comment.save
-    redirect_to book, notice: 'Comment was successfully created.'
+    redirect_to book, notice: t('controllers.common.notice_comment_create')
   end
 
   private
