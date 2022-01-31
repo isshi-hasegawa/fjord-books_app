@@ -38,13 +38,13 @@
 <% unless @user == current_user %>
   <div>
     <% if current_user.following?(@user) %>
-      <%= form_with(model: current_user.active_follows.find_by(followed_id: @user.id),
+      <%= form_with(url: follow_path(@user),
                     html: { method: :delete }, local: true) do |f| %>
         <%= f.submit t('follow.button.unfollow') %>
       <% end %>
     <% else %>
-      <%= form_with(model: current_user.active_follows.build, local: true) do |f| %>
-        <div><%= hidden_field_tag :followed_id, @user.id %></div>
+      <%= form_with(url: follows_path, local: true) do |f| %>
+        <div><%= hidden_field_tag :id, @user.id %></div>
         <%= f.submit t('follow.button.follow') %>
       <% end %>
     <% end %>
