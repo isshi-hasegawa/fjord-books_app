@@ -1,11 +1,8 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  user: one
-  title: MyString
-  content: MyText
-
-two:
-  user: two
-  title: MyString
-  content: MyText
+alice_report:
+  user: alice
+  title: Day1
+  content: これからよろしくおねがいします
+  created_at: Tue, 1 Jan 2022 00:00:00 +0900
+#  created_at: Sat, 1 Jan 2022 00:00:00 +0900
