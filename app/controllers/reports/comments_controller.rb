@@ -5,7 +5,7 @@ class Reports::CommentsController < ApplicationController
     report = Report.find(params[:report_id])
     comment = report.comments.new(comment_params)
     comment.user = current_user
-    comment.save
+    comment.save!
     redirect_to report, notice: t('controllers.common.notice_comment_create')
   end
 
