@@ -5,15 +5,16 @@ require 'application_system_test_case'
 class ReportsTest < ApplicationSystemTestCase
   setup do
     @report = reports(:alice_report)
-    login_by_alice
   end
 
   test 'visiting the index' do
+    login_by_alice
     visit reports_url
     assert_selector 'h1', text: '日報'
   end
 
   test 'create report' do
+    login_by_alice
     visit reports_url
     click_on '新規作成'
     fill_in 'タイトル', with: @report.title
@@ -23,6 +24,7 @@ class ReportsTest < ApplicationSystemTestCase
   end
 
   test 'update report' do
+    login_by_alice
     visit reports_url
     click_on '編集'
     fill_in 'タイトル', with: @report.title
@@ -32,6 +34,7 @@ class ReportsTest < ApplicationSystemTestCase
   end
 
   test 'destroy report' do
+    login_by_alice
     visit reports_url
     page.accept_confirm do
       click_on '削除'
