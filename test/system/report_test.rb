@@ -5,7 +5,6 @@ require 'application_system_test_case'
 class ReportsTest < ApplicationSystemTestCase
   setup do
     @report = reports(:alice_report)
-
     visit root_url
     fill_in 'Eメール', with: 'alice@example.com'
     fill_in 'パスワード', with: 'password'
@@ -20,25 +19,19 @@ class ReportsTest < ApplicationSystemTestCase
   test 'create report' do
     visit reports_url
     click_on '新規作成'
-
     fill_in 'タイトル', with: @report.title
     fill_in '内容', with: @report.content
     click_on '登録する'
-
     assert_text '日報が作成されました。'
-    click_on '戻る'
   end
 
   test 'update report' do
     visit reports_url
     click_on '編集'
-
     fill_in 'タイトル', with: @report.title
     fill_in '内容', with: @report.content
     click_on '更新する'
-
     assert_text '日報が更新されました。'
-    click_on '戻る'
   end
 
   test 'destroy report' do
@@ -46,7 +39,6 @@ class ReportsTest < ApplicationSystemTestCase
     page.accept_confirm do
       click_on '削除'
     end
-
     assert_text '日報が削除されました。'
   end
 end
