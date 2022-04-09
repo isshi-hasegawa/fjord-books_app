@@ -1,0 +1,10 @@
+<h1><%= @title %></h1>
+
+<% @users.each do |user| %>
+  <div>
+    <% if user.avatar.attached? %>
+      <%= link_to image_tag(user.avatar.variant(resize_to_fill: [150, 150])), user %>
+    <% end %>
+    <%= link_to user.name, user %>
+  </div>
+<% end %>

@@ -33,6 +33,24 @@
   <% end %>
 </p>
 
+<p><%= t('follow.common.followings') %> <%= link_to @user.followings.count, followings_user_path(@user) %> | <%= t('follow.common.followers') %> <%= link_to @user.followers.count, followers_user_path(@user) %></p>
+
+<% unless @user == current_user %>
+  <div>
+    <% if current_user.following?(@user) %>
+      <%= form_with(url: follow_path(@user),
+                    html: { method: :delete }, local: true) do |f| %>
+        <%= f.submit t('follow.button.unfollow') %>
+      <% end %>
+    <% else %>
+      <%= form_with(url: follows_path, local: true) do |f| %>
+        <div><%= hidden_field_tag :id, @user.id %></div>
+        <%= f.submit t('follow.button.follow') %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+
 <% if current_user == @user %>
   <%= link_to t('views.common.edit'), edit_user_registration_path %> |
 <% end %>
